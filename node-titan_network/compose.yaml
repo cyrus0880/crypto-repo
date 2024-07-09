@@ -1,0 +1,21 @@
+version: "3.9"
+services:
+  titan1:
+    image: aron666/aron-titan-edge
+    container_name: Titan_L2
+    environment:
+      AppConfig__TITAN_NETWORK_LOCATORURL: ${TITAN_NETWORK}
+      AppConfig__TITAN_STORAGE_STORAGEGB: ${STORAGEGB}
+      AppConfig__TITAN_EDGE_BINDING_URL: ${BINDING_URL}
+      AppConfig__TITAN_EDGE_ID: ${EDGE_ID}
+    restart: always
+    volumes:
+      - ./titanedge:/root/.titanedge
+    ports:
+      - 1234:1234/tcp
+      - 1234:1234/udp
+    networks:
+      - appnet
+networks:
+  appnet:
+    external: true

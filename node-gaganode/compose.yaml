@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  gaganode:
+    image: cyrus0880/meson-gaganode:1.0.4
+    restart: unless-stopped
+    networks:
+      appnet
+    environment:
+      - TOKEN=${TOKEN}
+    ports:
+      - 36060:36060
+networks:
+  appnet:
+    external: true

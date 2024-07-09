@@ -1,0 +1,13 @@
+version: "3.8"
+services:
+  repocket:
+    image: repocket/repocket
+    restart: always
+    environment:
+      - RP_EMAIL=$EMAIL
+      - RP_API_KEY=$API
+    networks:
+      - appnet
+networks:
+  appnet:
+    external: true

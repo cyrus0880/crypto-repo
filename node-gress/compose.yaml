@@ -1,0 +1,16 @@
+version: "3.8"
+services:
+  grass:
+    restart: unless-stopped
+    image: cyrus0880/grass
+    networks:
+      ufh:
+        ipv4_address: 192.168.150.72
+    environment:
+      - GRASS_USER=${USER}
+      - GRASS_PASS=${PASS}
+    ports:
+      - 18880:80
+networks:
+  ufh:
+    external: true

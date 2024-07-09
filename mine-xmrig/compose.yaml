@@ -1,0 +1,18 @@
+version: "3.3"
+services:
+  xmrig:
+    container_name: miner
+    stdin_open: true
+    tty: true
+    environment:
+      - POOL_URL=${POOL_URL}
+      - POOL_USER=${POOL_USER}
+      - POOL_PASS=${POOL_PASS}
+      - DONATE_LEVEL=${DONATE_LEVEL}
+    image: docker.io/metal3d/xmrig
+    networks:
+      - appnet
+    restart: always
+networks:
+  appnet:
+    external: true

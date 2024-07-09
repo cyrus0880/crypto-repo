@@ -1,0 +1,10 @@
+version: "3.8"
+services:
+  grass-community-node:
+    restart: unless-stopped
+    ports:
+      - 9394:80
+    environment:
+      - GRASS_USERID=${UID}
+    container_name: grass-grass-1
+    image: trendhk/grass-community-node:latest
